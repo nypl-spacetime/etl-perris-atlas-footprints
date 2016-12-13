@@ -1,0 +1,15 @@
+{
+  "name": "etl-perris-atlas-footprints",
+  "version": "0.0.1",
+  "description": "",
+  "main": "e&l.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.22.1",
+    "shapefile": "^0.5.9"
+  }
+}
