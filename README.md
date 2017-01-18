@@ -1,6 +1,6 @@
 # Space/Time ETL module: Perris Atlas Footprints
 
-[ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) module for NYPL's [NYC Space/Time Direcory](http://spacetime.nypl.org/). This Node.js module downloads, parses, and/or transforms Perris Atlas Footprints data to a NYC Space/Time Directory dataset.
+[ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) module for NYPL's [NYC Space/Time Direcory](http://spacetime.nypl.org/). This Node.js module downloads, parses, and/or transforms Perris Atlas Footprints data, and creates a NYC Space/Time Directory dataset.
 
 ## Details
 
