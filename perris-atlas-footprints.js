@@ -34,14 +34,12 @@ const newProperties = R.fromPairs(PROPERTIES.map((property) => Array.isArray(pro
 
 // Building [1] -> [n] Address [1] -> [1] Street
 
-function writeFeature(writer, feature, callback) {
+function writeFeature (writer, feature, callback) {
   var properties = R.fromPairs(R.toPairs(R.pick(pickProperties, feature.properties))
     .filter((pair) => pair[1])
     .map((pair) => [newProperties[pair[0]], pair[1]]))
 
-  BOOLEANS.forEach((boolean) => {
-    properties[boolean] = properties[boolean] ? true : false
-  })
+  BOOLEANS.forEach((boolean) => properties[boolean] === properties[boolean])
 
   const year = parseInt(feature.properties.layer_year)
 
@@ -93,7 +91,7 @@ function writeFeature(writer, feature, callback) {
 function transform (config, dirs, tools, callback) {
   shapefile.open(path.join(__dirname, FILENAME))
     .then(source => source.read()
-      .then(function log(result) {
+      .then(function log (result) {
         if (result.done) {
           callback()
           return
@@ -106,7 +104,6 @@ function transform (config, dirs, tools, callback) {
             return source.read().then(log)
           }
         })
-
       }))
     .catch(callback)
 }

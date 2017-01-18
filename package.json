@@ -1,12 +1,21 @@
 {
   "name": "etl-perris-atlas-footprints",
   "version": "0.0.1",
-  "description": "",
-  "main": "e&l.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Building footprints from William Perris' 1854 Maps of the City of New York, traced by NYPL librarians",
+  "main": "perris-atlas-footprints.js",
+  "devDependencies": {
+    "spacetime-generate-etl-readme": "^0.0.6",
+    "standard": "^8.4.0"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/nypl-spacetime/etl-mapwarper.git"
+  },
+  "scripts": {
+    "test": "standard",
+    "readme": "spacetime-generate-etl-readme ./ -o README.md"
+  },
+  "author": "Bert Spaan",
   "license": "MIT",
   "dependencies": {
     "ramda": "^0.22.1",
