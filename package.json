@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/nypl-spacetime/etl-mapwarper.git"
+    "url": "http://github.com/nypl-spacetime/etl-perris-atlas-footprints.git"
   },
   "scripts": {
     "test": "standard",
