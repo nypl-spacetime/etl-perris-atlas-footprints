@@ -1,12 +1,19 @@
+const fs = require('fs')
 const path = require('path')
+const request = require('request')
 const shapefile = require('shapefile')
+const H = require('highland')
 const R = require('ramda')
+const rewind = require('geojson-rewind')
 
-// Shapefile data:
-//   Copy files from s3://spacetime-nypl-org/source-data/perris-atlas-footprints/
-//   to ./data
-
-const FILENAME = 'data/perris.shp'
+const S3_URL = 'http://spacetime-nypl-org.s3.amazonaws.com/source-data/perris-atlas-footprints/'
+const FILENAMES = [
+  'perris.shp',
+  'perris.prj',
+  'perris.shx',
+  'perris.dbf'
+]
+const SHAPEFILE = 'perris.shp'
 
 const PROPERTIES = [
   'additional',
@@ -77,7 +84,7 @@ function writeFeature (writer, feature, callback) {
       validSince: year,
       validUntil: year,
       data: Object.assign(properties, address, secondaryAddress),
-      geometry: feature.geometry
+      geometry: rewind(feature.geometry, false)
     }
   }
 
@@ -88,8 +95,24 @@ function writeFeature (writer, feature, callback) {
   writer.writeObject(building, callback)
 }
 
+function downloadFile (dir, filename, callback) {
+  request(S3_URL + filename)
+    .pipe(fs.createWriteStream(path.join(dir, filename)))
+    .on('error', callback)
+    .on('finish', callback)
+}
+
+function download (config, dirs, tools, callback) {
+  H(FILENAMES)
+    .map(H.curry(downloadFile, dirs.current))
+    .nfcall([])
+    .series()
+    .errors(callback)
+    .done(callback)
+}
+
 function transform (config, dirs, tools, callback) {
-  shapefile.open(path.join(__dirname, FILENAME))
+  shapefile.open(path.join(dirs.download, SHAPEFILE))
     .then(source => source.read()
       .then(function log (result) {
         if (result.done) {
@@ -111,5 +134,6 @@ function transform (config, dirs, tools, callback) {
 // ==================================== API ====================================
 
 module.exports.steps = [
+  download,
   transform
 ]
