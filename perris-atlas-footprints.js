@@ -20,7 +20,6 @@ const PROPERTIES = [
   'comment',
   ['use_subtyp', 'useSubtype'],
   ['use_type', 'useType'],
-  ['layer_id', 'layerId'],
   'class',
   ['roof_type', 'roofType'],
   'materials',
@@ -41,7 +40,7 @@ const newProperties = R.fromPairs(PROPERTIES.map((property) => Array.isArray(pro
 
 // Building [1] -> [n] Address [1] -> [1] Street
 
-function makeAddressObject(buildingId, type, year, address) {
+function makeAddressObject (buildingId, type, year, address) {
   if (address) {
     const addressId = `${buildingId}-${type}`
 
@@ -90,10 +89,15 @@ function writeFeature (writer, feature, callback) {
   const year = parseInt(feature.properties.layer_year)
 
   let address
+
+  if (feature.properties.layer_id) {
+    properties.layerId = parseInt(feature.properties.layer_id)
+  }
+
   if (feature.properties.street) {
     address = {
       street: feature.properties.street,
-      number: feature.properties.number
+      number: feature.properties.number ? feature.properties.number : undefined
     }
 
     if (feature.properties.number) {

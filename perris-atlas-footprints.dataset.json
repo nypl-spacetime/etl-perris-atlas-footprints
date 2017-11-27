@@ -3,6 +3,115 @@
   "title": "Perris Atlas Footprints",
   "license": "CC0",
   "description": "Building footprints from William Perris' 1854 Maps of the City of New York, traced by NYPL librarians",
-  "author": "NYPL",
-  "website": "https://digitalcollections.nypl.org/items/510d47e0-bfdd-a3d9-e040-e00a18064a99"
+  "homepage": "https://digitalcollections.nypl.org/items/510d47e0-bfdd-a3d9-e040-e00a18064a99",
+  "sources": [
+    {
+      "title": "Shapefiles of footprints, traced with Map Warper by NYPL librarians",
+      "path": "http://spacetime-nypl-org.s3.amazonaws.com/source-data/perris-atlas-footprints/"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Bert Spaan",
+      "role": "editor"
+    },
+    {
+      "title": "NYPL",
+      "role": "author"
+    }
+  ],
+  "fields": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "definitions": {
+      "address": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+        ],
+        "properties": {
+          "street": {
+            "type": "string",
+            "description": ""
+          },
+          "number": {
+            "type": "string",
+            "description": ""
+          },
+          "addressType": {
+            "type": "string",
+            "description": ""
+          }
+        }
+      },
+      "oneOf": [
+        {
+          "$ref": "#/definitions/address"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "comment": {
+              "type": "string",
+              "description": ""
+            },
+
+            "useType": {
+              "type": "string",
+              "description": ""
+            },
+            "layerId": {
+              "type": "integer",
+              "description": "Map Warper layer ID where building was traced from"
+            },
+            "materials": {
+              "type": "string",
+              "description": ""
+            },
+            "useSubtype": {
+              "type": "string",
+              "description": ""
+            },
+            "class": {
+              "type": "string",
+              "description": ""
+            },
+            "roofType": {
+              "type": "string",
+              "description": ""
+            },
+            "skylights": {
+              "type": "string",
+              "description": ""
+            },
+            "stores": {
+              "type": "string",
+              "description": ""
+            },
+            "boilers": {
+              "type": "string",
+              "description": ""
+            },
+            "additional": {
+              "type": "string",
+              "description": ""
+            },
+            "buildings": {
+              "type": "string",
+              "description": ""
+            },
+            "address": {
+              "$ref": "#/definitions/address",
+              "description": ""
+            },
+            "secondaryAddress": {
+              "$ref": "#/definitions/address",
+              "description": ""
+            }
+          }
+        }
+      ]
+    }
+  }
 }
