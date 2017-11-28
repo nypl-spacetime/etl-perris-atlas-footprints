@@ -13,14 +13,14 @@
   "contributors": [
     {
       "title": "Bert Spaan",
-      "role": "editor"
+      "role": "wrangler"
     },
     {
-      "title": "NYPL",
+      "title": "NYPL Map Division",
       "role": "author"
     }
   ],
-  "fields": {
+  "schema": {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "definitions": {
