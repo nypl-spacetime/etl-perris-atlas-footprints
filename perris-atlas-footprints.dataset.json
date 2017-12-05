@@ -20,6 +20,18 @@
       "role": "author"
     }
   ],
+  "flattenPaths": [
+    "$.data.comment",
+    "$.data.useType",
+    "$.data.class",
+    "$.data.materials",
+    "$.data.stores",
+    "$.data.layerId",
+    "$.data.address",
+    "$.data.street",
+    "$.data.number",
+    "$.data.addressType"
+  ],
   "schema": {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
@@ -27,20 +39,19 @@
       "address": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-        ],
+        "required": [],
         "properties": {
           "street": {
             "type": "string",
-            "description": ""
+            "description": "Street name"
           },
           "number": {
             "type": "string",
-            "description": ""
+            "description": "House number"
           },
           "addressType": {
             "type": "string",
-            "description": ""
+            "description": "Primary or secondary"
           }
         }
       },
@@ -54,12 +65,11 @@
           "properties": {
             "comment": {
               "type": "string",
-              "description": ""
+              "description": "Comment"
             },
-
             "useType": {
               "type": "string",
-              "description": ""
+              "description": "Usage type"
             },
             "layerId": {
               "type": "integer",
@@ -67,47 +77,47 @@
             },
             "materials": {
               "type": "string",
-              "description": ""
+              "description": "Materials"
             },
             "useSubtype": {
               "type": "string",
-              "description": ""
+              "description": "Usage subtype"
             },
             "class": {
               "type": "string",
-              "description": ""
+              "description": "Building class"
             },
             "roofType": {
               "type": "string",
-              "description": ""
+              "description": "Roof type"
             },
             "skylights": {
               "type": "string",
-              "description": ""
+              "description": "Skylights"
             },
             "stores": {
               "type": "string",
-              "description": ""
+              "description": "Stores"
             },
             "boilers": {
               "type": "string",
-              "description": ""
+              "description": "Boilers"
             },
             "additional": {
               "type": "string",
-              "description": ""
+              "description": "Additional information"
             },
             "buildings": {
               "type": "string",
-              "description": ""
+              "description": "Building information"
             },
             "address": {
               "$ref": "#/definitions/address",
-              "description": ""
+              "description": "Primary address"
             },
             "secondaryAddress": {
               "$ref": "#/definitions/address",
-              "description": ""
+              "description": "Secondary address"
             }
           }
         }

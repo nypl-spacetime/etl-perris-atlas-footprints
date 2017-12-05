@@ -63,15 +63,15 @@ The dataset created by this ETL module’s `transform` step can be found in the 
       "properties": {
         "street": {
           "type": "string",
-          "description": ""
+          "description": "Street name"
         },
         "number": {
           "type": "string",
-          "description": ""
+          "description": "House number"
         },
         "addressType": {
           "type": "string",
-          "description": ""
+          "description": "Primary or secondary"
         }
       }
     },
@@ -85,11 +85,11 @@ The dataset created by this ETL module’s `transform` step can be found in the 
         "properties": {
           "comment": {
             "type": "string",
-            "description": ""
+            "description": "Comment"
           },
           "useType": {
             "type": "string",
-            "description": ""
+            "description": "Usage type"
           },
           "layerId": {
             "type": "integer",
@@ -97,47 +97,47 @@ The dataset created by this ETL module’s `transform` step can be found in the 
           },
           "materials": {
             "type": "string",
-            "description": ""
+            "description": "Materials"
           },
           "useSubtype": {
             "type": "string",
-            "description": ""
+            "description": "Usage subtype"
           },
           "class": {
             "type": "string",
-            "description": ""
+            "description": "Building class"
           },
           "roofType": {
             "type": "string",
-            "description": ""
+            "description": "Roof type"
           },
           "skylights": {
             "type": "string",
-            "description": ""
+            "description": "Skylights"
           },
           "stores": {
             "type": "string",
-            "description": ""
+            "description": "Stores"
           },
           "boilers": {
             "type": "string",
-            "description": ""
+            "description": "Boilers"
           },
           "additional": {
             "type": "string",
-            "description": ""
+            "description": "Additional information"
           },
           "buildings": {
             "type": "string",
-            "description": ""
+            "description": "Building information"
           },
           "address": {
             "$ref": "#/definitions/address",
-            "description": ""
+            "description": "Primary address"
           },
           "secondaryAddress": {
             "$ref": "#/definitions/address",
-            "description": ""
+            "description": "Secondary address"
           }
         }
       }

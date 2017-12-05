@@ -1,6 +1,6 @@
 {
   "name": "etl-perris-atlas-footprints",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Building footprints from William Perris' 1854 Maps of the City of New York, traced by NYPL librarians",
   "main": "perris-atlas-footprints.js",
   "devDependencies": {
